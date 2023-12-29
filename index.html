@@ -3,44 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer src="./scripts.js"></script>
+    <link rel="stylesheet" href="style.css" />
     <title>Number Guessing Game</title>
   </head>
   <body>
-    <script>
-      function getComputerChoice() {
-        return Math.floor(Math.random() * 100);
-      }
+    <div class="container">
+      <h2 class="title">Let's Play: Guess The Number!</h2>
+      <p class="rules"></p>
+      <p class="game-display"></p>
+      <form method="get" action="/">
+        <div>
+          <label for="input">Number:</label>
+          <input type="number" min="1" max="100" id="input" name="input" />
+        </div>
 
-      let computerChoice = getComputerChoice();
-      let i = 0;
-
-      console.log(computerChoice);
-
-      function numberRage(playerChoice) {
-        playerChoice = prompt(
-          "Guess a number between 1-100! The game ends once you guess the correct number or guess 5 attempts! "
-        );
-
-        if (!isNaN(playerChoice)) {
-          parseInt(playerChoice);
-          if (playerChoice < computerChoice) {
-            return `the number is higher than ${playerChoice}`;
-          } else if (playerChoice > computerChoice) {
-            return `the number is lower than ${playerChoice}`;
-          } else {
-            i += 5;
-            return `You guessed right! The secret number is ${computerChoice}!`;
-          }
-        }
-        i += 5;
-        return "Please enter in digits!";
-      }
-
-      while (i < 5) {
-        console.log(numberRage());
-
-        i++;
-      }
-    </script>
+        <button class="submit" type="submit">Guess!</button>
+        <button class="reset" type="reset">Reset</button>
+      </form>
+    </div>
   </body>
 </html>
